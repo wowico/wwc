@@ -1,6 +1,6 @@
 # Dependencies
 markdown:         redcarpet
-highlighter:      rouge
+highlighter:      
 
 # Permalinks
 permalink:        pretty
@@ -10,7 +10,7 @@ title:            Working with Corpora
 tagline:          'Information about our lessons and participants'
 description:      'Working with Corpora (wowico) is an organisation that gives open-source lessons relating to corpus linguistics at Saarland Uni.'
 url:              https://github.com/wowico
-baseurl:          /wwc/
+baseurl:          /wwc
 
 author:
   name:           'The Team'

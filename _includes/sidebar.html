@@ -26,15 +26,16 @@
         {% endif %}
       {% endfor %}
 
+
+
       <UL>
 
       {% assign pages_list = site.friends %}
       {% for node in pages_list %}
         {% if node.title != null %}
         {% if node.title != "Friend (template)" %}
-
           {% if node.layout == "page" %}
-            <LI><a class="sidebar-nav-item-small{% if page.url == node.url %} active{% endif %}" href="{{ node.url }}">{{ node.title }}</a>
+            <LI><a class="sidebar-nav-item-small{% if page.url == node.url %} active{% endif %}" href="{{ site.baseurl}}{{ node.url }}">{{ node.title }}</a>
           {% endif %}
           {% endif %}
         {% endif %}
