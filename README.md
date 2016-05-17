@@ -1,4 +1,4 @@
-# Data Carpentry with Python and NLTK
+# Working With Corpora
 
 This repository contains teaching materials for Saarland Uni's [*Working With Corpora*](http://fedora.clarin-d.uni-saarland.de/unserwiki/doku.php?id=training:working_with_corpora/) program. It's been adapted from the repository for teaching materials and additional resources used by [*Research Platforms Services*](http://melbourne.resbaz.edu.au/) at the University of Melbourne to teach *Python*, *IPython*, *Jupyter* and the *Natural Language Toolkit* (*NLTK*).
 
@@ -9,7 +9,7 @@ Learn more on [WwC Python sessions](http://fedora.clarin-d.uni-saarland.de/unser
 All the materials used in the workshops are in this repository. In fact, cloning this repository will be our first activity together as a group. To do that, just open your terminal and type/paste:
 
 ```shell
-git clone https://github.com/wowico/wwc.git
+git clone git@github.com:wowico/wwc.git
 ```
 
 Our lessons are stored as *markdown* files. The following line of code will let us open *markdown* files in the *Jupyter Notebook*.
