@@ -8,7 +8,7 @@ permalink:        pretty
 # Setup
 title:            Working with Corpora
 tagline:          'Information about our lessons and participants'
-description:      'Working with Corpora (wowico) is an organisation that gives open-source lessons relating to corpus linguistics at Saarland Uni.'
+description:      'Working with Corpora (*wowico*) is an organisation that gives open-source lessons relating to corpus linguistics at Saarland Uni.'
 url:              https://github.com/wowico
 baseurl:          /
 
