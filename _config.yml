@@ -35,6 +35,7 @@ collections:
 defaults:
   - scope:
       path: ""
+      relave_path: "/wwc/"
       type: friends
     values:
       layout: page
