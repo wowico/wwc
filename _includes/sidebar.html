@@ -6,7 +6,7 @@
           {{ site.title }}
         </a>
       </h1>
-      <p class="lead">{{ site.description }}</p>
+      <p class="lead" style="font-size:16px">{{ site.description }}</p>
     </div>
 
     <nav class="sidebar-nav">
@@ -26,9 +26,23 @@
         {% endif %}
       {% endfor %}
 
-      <a class="sidebar-nav-item" href="{{ site.github.repo }}/archive/v{{ site.version }}.zip">Download</a>
-      <a class="sidebar-nav-item" href="{{ site.github.repo }}">GitHub project</a>
-      <span class="sidebar-nav-item">Currently v{{ site.version }}</span>
+      <UL>
+
+      {% assign pages_list = site.friends %}
+      {% for node in pages_list %}
+        {% if node.title != null %}
+        {% if node.title != "Friend (template)" %}
+
+          {% if node.layout == "page" %}
+            <LI><a class="sidebar-nav-item-small{% if page.url == node.url %} active{% endif %}" href="{{ node.url }}">{{ node.title }}</a>
+          {% endif %}
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+
+      </UL>
+
+      <a class="sidebar-nav-item" href="{{ site.github.repo }}">GitHub</a>
     </nav>
 
     <p>&copy; {{ site.time | date: '%Y' }}. All rights reserved.</p>
