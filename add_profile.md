@@ -39,9 +39,7 @@ git status
 # stage your file
 git add _friends/<name>.md
 # commit the changes
-git commit -a "add my bio to the website"
-# send to the remote
-git push origin gh-pages
+git commit -m "add my bio to the website"
 ```
 
 Problem? You'll probably need to register yourself:
@@ -51,10 +49,22 @@ git config --global user.name "Firstname Lastname"
 git config --global user.email username@gmail.com
 ```
 
+... and, you'll need to make an ssh key (sorry!)
+
+```shell
+ssh-keygen
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_rsa
+```
+
+Now, you need to copy that key and [add it to your GitHub account](https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account).
+
 Try again:
 
 ```shell
+ssh -T git@github.com
+git commit -m "add my bio to the website"
 git push origin gh-pages
 ```
 
-Now, you can go to your fork on GitHub and make a pull request!
+Now, you can go to your fork on GitHub and make a pull request (and forget all about `ssh` for a while.)
