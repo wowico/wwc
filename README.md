@@ -15,6 +15,6 @@ git clone https://github.com/wowico/wwc.git
 Our lessons are stored as *markdown* files. The following line of code will let us open *markdown* files in the *Jupyter Notebook*.
 
 ```shell
-! pip install notedown
-! printf "c.NotebookApp.contents_manager_class = 'notedown.NotedownContentsManager'" >> ~/.jupyter/jupyter_notebook_config.py
+pip install notedown
+printf "c.NotebookApp.contents_manager_class = 'notedown.NotedownContentsManager'\n" >> ~/.jupyter/jupyter_notebook_config.py
 ```
