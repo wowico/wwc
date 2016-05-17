@@ -10,7 +10,7 @@ title:            Working with Corpora
 tagline:          'Information about our lessons and participants'
 description:      'Working with Corpora (wowico) is an organisation that gives open-source lessons relating to corpus linguistics at Saarland Uni.'
 url:              https://github.com/wowico
-baseurl:          /
+baseurl:          /wwc/
 
 author:
   name:           'The Team'
@@ -34,8 +34,6 @@ collections:
 
 defaults:
   - scope:
-      path: ""
-      relave_path: "/wwc/"
       type: friends
     values:
       layout: page
