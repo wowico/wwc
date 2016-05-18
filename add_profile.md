@@ -54,9 +54,9 @@ git config --global user.email username@gmail.com
 ```shell
 # generate key (defaults are fine)
 ssh-keygen
-# run agent in backgrounf
+# run agent in background
 eval "$(ssh-agent -s)"
-# add kedy
+# add key
 ssh-add ~/.ssh/id_rsa
 # show the key so you can copy it
 cat ~/.ssh/id_rsa
