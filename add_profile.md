@@ -52,9 +52,14 @@ git config --global user.email username@gmail.com
 ... and, you'll need to make an ssh key (sorry!)
 
 ```shell
+# generate key (defaults are fine)
 ssh-keygen
+# run agent in backgrounf
 eval "$(ssh-agent -s)"
+# add kedy
 ssh-add ~/.ssh/id_rsa
+# show the key so you can copy it
+cat ~/.ssh/id_rsa
 ```
 
 Now, you need to copy that key and [add it to your GitHub account](https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account).
@@ -62,7 +67,9 @@ Now, you need to copy that key and [add it to your GitHub account](https://help.
 Try again:
 
 ```shell
+# test your ssh
 ssh -T git@github.com
+# commit and push to gh-pages
 git commit -m "add my bio to the website"
 git push origin gh-pages
 ```
