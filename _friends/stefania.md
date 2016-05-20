@@ -1,5 +1,5 @@
 ---
-Stefania
+title: Stefania
 ---
 
 About me
