@@ -240,20 +240,28 @@ from lxml import etree
 Then we create our first element. This will become our root element. We will name it `text`. For that purpose we use the class 'Element'.
 
 ```python
-
-
-
-
+root = etree.Element('text')
+# check if we have created the element
+print(root)
+# properties of an element
+# the XML tag name
+print(root.tag)
+# print the element as a binary string (machine view)
+print(etree.tostring(root))
+# decode it to print a unicode string (human view)
+print(etree.tostring(root).decode())
 ```
 
 Next we want to create an element for our first sentence. This `s` element has to be a child of our `root` element.
 
 ```python
-
-
-
-
-
+sentence1 = etree.SubElement(root, 's1')
+etree.SubElement(root, 's2')
+print(sentence1)
+print(etree.tostring(sentence1))
+print(etree.tostring(root))
+print(etree.tostring(root, pretty_print=True))
+print(etree.tostring(root, pretty_print=True).decode())
 ```
 
 Elements behave like Python lists (most of the time).
@@ -261,89 +269,79 @@ Elements behave like Python lists (most of the time).
 You can uses numeric indexes to access particular elements:
 
 ```python
-
-
-
+root[0]
+root[-1]
 ```
 
 You can know how many children an element has with the function `len`:
 
 ```python
-
-
-
-
-
+len(root)
+len(sentence1)
 ```
 
 You can append children to an element:
 
 ```python
-
-
-
-
-
+new_child = etree.Element('s5')
+root.append(new_child)
+print(len(root))
 ```
 
 You can loop through the children:
 
 ```python
-
-
-
-
+for sentence in root:
+    print(sentence.tag)
 ```
 
 You can also get the parent of an element:
 
 ```python
-
-
-
-
+root[0]
+root[0].getparent()
 ```
 
 You can also get the next or previous sibling:
 
 ```python
-
-
-
-
-
+root[1].getprevious()
+root[0].getnext()
 ```
 
 You can also remove a children by its index:
 
 ```python
-
-
-
-
-
+print(len(root))
+del(root[5])
+del(root[4])
+del(root[3])
+print(len(root))
 ```
 
 Elements can have attributes, the value of an attribute has to be always a string. Attributes behave like dictionaries:
 
 ```python
-
-
-
-
-
-
+root = etree.Element('text', id = "text_1")
+etree.tostring(root)
+root.get('id')
+root.set('year','2016')
+etree.tostring(root)
+root.keys()
+root.values()
+root.items()
+root.attrib
+root.attrib['id']
+root.attrib['year'] = '2015'
 ```
 
 Elements can contain text:
 
 ```python
-
-
-
-
-
-
+token1 = etree.Element('token')
+token1.text = "We"
+token1.text
+etree.tostring(token1)
 ```
 
 Elements can contain mixed content. Mixed content is not that easy to process. But if you work with (X)HTML or XML with inline annotation (as opossed to stand of annotation) you will have to cope with it. We don't have time for this, but you can learn more about it in the official tutorial. <http://lxml.de/tutorial.html#elements-contain-text>
@@ -367,6 +365,19 @@ We only have the following sentence in the form of a list made of tuples, each t
 
 ```python
 tokens = [("Karin","NE"),("fliegt","VVFIN"),("nach","APPR"),("New","NE"),("York","NE"),(".","$.")]
+root = etree.Element('text')
+root.attrib['ID'] = 'text_0'
+sentence = etree.SubElement(root, 's')
+sentence.attrib['ID'] = 's_0'
+for token in tokens:
+    xmltoken = etree.SubElement(sentence, 'token')
+    xmltoken.text = token[0]
+    xmltoken.attrib['pos'] = token[1]
+tok_counter = 0
+for token in sentence:
+    token.attrib['ID'] = "t_"+str(tok_counter)
+    tok_counter += 1
+print(etree.tostring(root).decode())
 ```
 
 But a text is normally done of more than one sentence, can you write a loop to process so many sentences as needed:
@@ -374,21 +385,37 @@ But a text is normally done of more than one sentence, can you write a loop to p
 ```python
 sentences = [[("Karin","NE"),("fliegt","VVFIN"),("nach","APPR"),("New","NE"),("York","NE"),(".","$.")],[("Sie","PPER"),("will","VMFIN"),("dort","ADV"),("Urlaub","NN"),("machen","VVINF"),(".","$.")]]
 
-
-
-
+root = etree.Element('text')
+root.attrib['ID'] = 'text_0'
+sent_counter = 0
+tok_counter = 0
+for item in sentences:
+    xmlsentence = etree.SubElement(root, 's')
+    xmlsentence.attrib['ID'] = 's_'+str(sent_counter)
+    sent_counter += 1
+    for token in item:
+        xmltoken = etree.SubElement(xmlsentence, 'token')
+        xmltoken.text = token[0]
+        xmltoken.attrib['pos'] = token[1]
+    for token in xmlsentence:
+        token.attrib['ID'] = "t_"+str(tok_counter)
+        tok_counter += 1
+print(etree.tostring(root, pretty_print = True).decode())
 ```
 
 Great! We made it! What we probably want to do now is to save the tree as an XML file. This is called serialisation. We need an `ElementTree` object. And then we can use the function `write` to save the tree as a XML file.
 
 ```python
+print(root)
+tree = etree.ElementTree(root)
+print(tree)
+print(etree.tostring(tree))
+tree.write('myfirstxmlfile.xml', encoding="utf-8", pretty_print=True, xml_declaration=True, method="xml")
 
-
-
-
-
-
-
+# alternatively
+print(etree.tostring(root, pretty_print = True, encoding = 'utf-8', method = 'xml', xml_declaration = True).decode())
+with open('myfirstxmlfile.xml', mode = 'w', encoding = 'utf-8') as ofile:
+    ofile.write(etree.tostring(root, pretty_print = True, encoding = 'utf-8', method = 'xml', xml_declaration = True).decode())
 ```
 
 ### Read XML from a string
@@ -426,6 +453,10 @@ xmlsource = b'''<?xml version="1.0" encoding="UTF-8"?>
         <token ID="t_11">.</token>
     </tokens>
 </TextCorpus>'''
+
+root = etree.fromstring(xmlsource)
+
+print(root.tag)
 ```
 
 ### Read XML from a file
@@ -433,12 +464,10 @@ xmlsource = b'''<?xml version="1.0" encoding="UTF-8"?>
 We can also read XML from a file:
 
 ```python
-
-
-
-
-
-
+with open('myfirstxmlfile.xml', mode = 'r', encoding = 'utf-8') as infile:
+    tree = etree.parse(infile)
+root = tree.getroot()
+print(root.tag)
 ```
 
 ### Common operations
@@ -448,37 +477,26 @@ We can also read XML from a file:
 Find all elements with a particular tag:
 
 ```python
-
-
-
-
+all_tokens = root.findall('.//token')
 ```
 
 Find all elements with a particular attribute:
 
 ```python
-
-
-
+all_tokens2 = root.findall('.//token[@id]')
 ```
 
 Find all elements whose PoS attribute value is NE:
 
 ```python
-
-
-
-
+all_tokens2 = root.findall('.//token[@pos="NE"]')
 ```
 
 We can use also XPath syntax if you are more familiar with that:
 
 ```python
-
-
-
-
-
+all_wordforms = root.xpath('.//token/text()')
+all_wordforms = root.xpath('.//token[@pos="NE"]/text()')
 ```
 
 ### Extracting Info
