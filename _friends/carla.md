@@ -26,7 +26,3 @@ I could teach ...
 2. REGEX for dealing with corpora
 3. Parallel corpora
 4. Compounds in German
-
-```{.python .input}
-
-```
