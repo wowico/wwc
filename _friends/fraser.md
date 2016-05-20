@@ -23,3 +23,5 @@ I could teach ...
 * Regular expressions
 * HTML parsing
 * XML parsing
+
+![alt text](http://files.gamebanana.com/img/ico/sprays/54f2862be0933.png "Fraser is cool")
