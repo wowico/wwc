@@ -101,7 +101,7 @@ a.sidebar-nav-item:focus {
 
 .sidebar-nav-item-small {
   display: block;
-  line-height: 1.5;
+  line-height: 0.8;
   font-size: 0.75rem;
 }
 a.sidebar-nav-item-small:hover,
