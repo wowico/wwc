@@ -16,7 +16,7 @@ git pull
 Now, you might like to copy the template file:
 
 ```shell
-cp _posts/2016-05-16-template.md 2016-05-20-<pick-a-title>.md
+cp _posts/2016-05-16-template.md _posts/2016-05-20-<pick-a-title>.md
 ```
 
 Once you've done that, you need to edit the newly created blog entry. In the cloud, the best way to do this is to open up the *Jupyter Notebook* interface, navigate to `wwc/_posts`, and open it up for editing.
@@ -25,11 +25,14 @@ Once you've edited it, save it, and return to the *Shell Terminal*. Then:
 
 ```shell
 git status
-git add 2016-05-20-<pick-a-title>.md
+git add _posts/2016-05-20-<pick-a-title>.md
+# if you're having authentication errors,
+# check out our page on 'adding your bio'
 git commit "Adding a blog post"
 git push origin gh-pages
 ```
 
 If you go to your fork, which should be at `https://www.github.com/<username>/wwc`, you should now see your new files. You can then submit a pull request to the main repository. We'll approve it, and your post will appear here!
+
 
 Good luck!
