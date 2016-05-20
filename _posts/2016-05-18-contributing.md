@@ -9,6 +9,8 @@ Contributing to this blog is easy. To do it, make sure you have a fork of the [t
 ```shell
 # enter the repo
 cd wwc
+# make sure we're working on the website
+git checkout gh-pages
 # make sure your fork is up to date:
 git pull
 ```
