@@ -24,7 +24,3 @@ I could teach ...
 1. Classification with Weka (just basics)
 2. Information-theoretic measures to detect typical features across classes
 (e.g. time periods, registers)
-
-```{.python .input}
-
-```

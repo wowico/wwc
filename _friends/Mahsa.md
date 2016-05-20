@@ -21,8 +21,3 @@ I could teach ...
 
 
 1. Farsi :)
-
-
-```{.python .input}
-
-```

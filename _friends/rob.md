@@ -21,9 +21,3 @@ I could teach ...
 1. English
 2. LaTeX
 3. Systemic Functional Grammar
-
-
-
-```{.python .input}
-
-```

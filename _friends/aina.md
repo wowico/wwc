@@ -20,8 +20,3 @@ I could teach ...
 --------------------
 
 Not much yet, as I started programming recently. I am a beginner in everything.
-
-
-```{.python .input}
-
-```
