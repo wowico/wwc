@@ -59,7 +59,7 @@ eval "$(ssh-agent -s)"
 # add key
 ssh-add ~/.ssh/id_rsa
 # show the key so you can copy it
-cat ~/.ssh/id_rsa
+cat ~/.ssh/id_rsa.pub
 ```
 
 Now, you need to copy that key and [add it to your GitHub account](https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account).
