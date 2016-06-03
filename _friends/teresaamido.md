@@ -1,5 +1,5 @@
 ---
-title:teresaamido
+title: Teresaamido
 ---
 
 About me
