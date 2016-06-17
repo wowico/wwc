@@ -2,9 +2,6 @@
 title: Mahsa
 ---
 
-Mahsa
-===========
-
 ***Salam!***
 
 I'm Mahsa, from Iran. I study *Computational Linguistics* and I like `Jupyter`.
