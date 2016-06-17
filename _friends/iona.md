@@ -5,20 +5,22 @@ title: Iona
 About me
 ===========
 
-Your text here, using *italics*, **bold** or `code` formatting.
+I recently started working at UdS ***Phonetics*** department.
 
 I'd like to learn
 --------------------
 
-Your text here, including bullet points:
+* GitHub
+* Python
+* XML Parsing
 
-* How to do statistical operations on linguistic data
-* How to keep my work under version control
+The list of stuff I need to look into is growing every day...
+
 
 I could teach ...
 --------------------
 
-These might be enumerated, like this:
+Well, I'm working with LaTeX and R, but...
 
-2. Matplotlib
-3. Sphinx
+
+![alt text](http://www.uni-saarland.de/verwalt/presse/campus/2001/2/bilder/Uni-Logo.jpg "Does that work?")
