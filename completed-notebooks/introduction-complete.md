@@ -215,7 +215,7 @@ print(type(datum))
 datum = u'A unicode string'
 print(type(datum))
 datum = 42
-print(type(datum)
+print(type(datum))
 datum = ['item']
 print(type(datum))
 datum = ('item', 'another')
